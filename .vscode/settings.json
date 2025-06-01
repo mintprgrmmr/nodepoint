@@ -1,0 +1,14 @@
+{
+  "files.exclude": {
+    "**/ext/examples/**": true
+  },
+  "search.exclude": {
+    "**/ext/examples/**": true
+  },
+  "php.validate": {
+    "exclude": [
+      "**/ext/examples/**"
+    ]
+  },
+  "php.validate.enable": false
+}

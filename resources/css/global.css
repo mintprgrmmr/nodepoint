@@ -1,0 +1,119 @@
+/* --- Контейнер для кнопок тем --- */
+.theme-preview-container {
+  display: flex;
+  gap: 6px;
+  padding: 0 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* --- Круглая иконка темы --- */
+.theme-preview {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+/* --- При наведении слегка увеличивается --- */
+.theme-preview:hover {
+  transform: scale(1.2);
+}
+
+/* --- Выделенная тема с синим обводом --- */
+.theme-preview.selected {
+  border-color: #007acc;
+  box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.3);
+}
+
+/* --- Всплывающая подсказка --- */
+.theme-tooltip {
+  position: fixed;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  font-size: 11px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  transform: translate(-50%, -130%);
+  pointer-events: none;
+}
+
+/* --- Цвета тем (визуальные индикаторы) ---
+   ⚠️ Пока все темы светлые. Цвета ниже — просто визуальные стили для кружков.
+   В будущем можно подключить настоящие dark-версии по этим меткам.
+*/
+
+/* --- Светлая палитра кружков --- */
+[data-mode="light"] .theme-classic  { background-color: #d6d2cb; }
+[data-mode="light"] .theme-gray     { background-color: #a8a29e; }
+[data-mode="light"] .theme-crisp    { background-color: #e6a15c; }
+[data-mode="light"] .theme-neptune  { background-color: #87d0db; }
+[data-mode="light"] .theme-triton   { background-color: #90bfa0; }
+
+/* --- Тёмная палитра кружков (⚠️ пока без настоящих тёмных тем) --- */
+[data-mode="dark"] .theme-classic   { background-color: #6a635a; }
+[data-mode="dark"] .theme-gray      { background-color: #4e4a45; }
+[data-mode="dark"] .theme-crisp     { background-color: #b07239; }
+[data-mode="dark"] .theme-neptune   { background-color: #579ca5; }
+[data-mode="dark"] .theme-triton    { background-color: #5f9472; }
+
+/* --- Общая корректировка тулбара (универсально для всех тем) --- */
+.x-toolbar-default,
+.x-toolbar {
+  min-height: 42px !important;
+  padding: 4px 8px !important;
+}
+
+.x-toolbar .x-box-inner {
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.nodepoint-toolbar .x-btn {
+  min-height: 32px;
+  padding: 6px 12px;
+  font-size: 13px;
+  line-height: 1.2;
+  margin-right: 6px;
+}
+
+/* --- Тумблер тёмного режима --- */
+#dark-mode-toggle {
+  appearance: none;
+  width: 36px;
+  height: 20px;
+  background: #ccc;
+  border-radius: 10px;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  flex-shrink: 0;
+}
+
+#dark-mode-toggle::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 2px;
+  left: 2px;
+  border-radius: 50%;
+  background: white;
+  transition: transform 0.3s;
+}
+
+#dark-mode-toggle:checked {
+  background: #007acc;
+}
+
+#dark-mode-toggle:checked::before {
+  transform: translateX(16px);
+}

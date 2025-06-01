@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NODEPOINT</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Глобальные стили -->
+  <link rel="stylesheet" href="resources/css/global.css">
+
+  <!-- Загрузка темы ExtJS и установка тёмного режима ДО ExtJS -->
+  <script>
+    // Сохраняем выбранную тему или ставим по умолчанию
+    const savedTheme = localStorage.getItem('theme') || 'theme-triton';
+
+    // Создаём <link> для темы
+    const themeLink = document.createElement('link');
+    themeLink.rel = 'stylesheet';
+    themeLink.id = 'theme-link';
+    themeLink.href = `ext/build/classic/${savedTheme}/resources/${savedTheme}-all.css`;
+
+    // Добавляем в <head> до загрузки ExtJS
+    document.head.appendChild(themeLink);
+
+    // Устанавливаем data-mode (light / dark) для кастомных стилей
+    const savedMode = localStorage.getItem('mode') || 'light';
+    document.documentElement.setAttribute('data-mode', savedMode);
+  </script>
+</head>
+<body>
+
+  <!-- Подключение библиотеки ExtJS -->
+  <script src="ext/build/ext-all.js"></script>
+  <script src="ext/locale/locale-ru.js"></script>
+
+  <!-- Точка входа в приложение -->
+  <script src="app.js"></script>
+
+</body>
+</html>
